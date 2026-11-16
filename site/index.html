@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#06060b">
+  <meta name="google-site-verification" content="lThorNYCocqBo_amd4jxROF6rq3bt0yQuDfH-CcMO04" />
+  <title>Web apps · Julie Toussaint</title>
+  <meta name="description" content="All of Julie Toussaint's web apps in one place. Pick one and open it right in your browser.">
+  <meta property="og:title" content="Web apps · Julie Toussaint">
+  <meta property="og:description" content="All my web apps in one place. Pick one and open it right in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://apps.julietous.workers.dev/">
+  <meta property="og:image" content="https://apps.julietous.workers.dev/img/og-20261116b.jpg">
+  <meta property="og:image:secure_url" content="https://apps.julietous.workers.dev/img/og-20261116b.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Web apps by Julie Toussaint: seven apps in one place">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://apps.julietous.workers.dev/img/og-20261116b.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23ff3d6e'/><stop offset='.35' stop-color='%23ffd23d'/><stop offset='.65' stop-color='%2333f0a0'/><stop offset='1' stop-color='%237a5cff'/></linearGradient></defs><rect width='32' height='32' rx='9' fill='%2306060b'/><g fill='url(%23g)'><rect x='7' y='7' width='8' height='8' rx='2'/><rect x='17' y='7' width='8' height='8' rx='2'/><rect x='7' y='17' width='8' height='8' rx='2'/><rect x='17' y='17' width='8' height='8' rx='2'/></g></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20261116-5">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+
+  <h1 class="sr" data-i18n="title">Pick an app</h1>
+
+  <main class="wrap main">
+    <div class="controls">
+      <div id="cats" class="cats" role="tablist" data-i18n-label="category" aria-label="Category"></div>
+      <button type="button" class="iconbtn" id="sort" data-sort="updated" data-i18n-label="sortUpdated" aria-label="Recently updated">
+        <svg class="ic ic--clock" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 6v4.2l2.8 1.8"/></svg>
+        <svg class="ic ic--az" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 15 6 5l3 10M4 12h4M12 5h5l-5 10h5"/></svg>
+      </button>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" lang="en">EN</button>
+        <button type="button" data-lang="nl" lang="nl">NL</button>
+      </div>
+    </div>
+
+    <section class="stage" id="stage" aria-live="polite">
+      <div id="grid" class="grid" role="list"></div>
+      <div id="empty" class="empty" hidden>
+        <svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4M6.5 8.5h4"/></svg>
+        <button type="button" class="chip" id="reset" data-i18n="emptyAll">Show all</button>
+      </div>
+    </section>
+
+    <div class="bar">
+      <p id="count" class="count"></p>
+      <nav class="pager" id="pager" data-i18n-label="pages" aria-label="Pages">
+        <button type="button" class="iconbtn" id="prev" data-i18n-label="prev" aria-label="Previous page">
+          <svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"/></svg>
+        </button>
+        <div class="pager__dots" id="dots"></div>
+        <button type="button" class="iconbtn" id="next" data-i18n-label="next" aria-label="Next page">
+          <svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg>
+        </button>
+      </nav>
+      <span></span>
+    </div>
+  </main>
+
+  <dialog id="dlg" class="dlg ring" aria-labelledby="dlg-title">
+    <div class="dlg__in">
+      <div class="dlg__media"><img id="dlg-img" alt=""></div>
+      <div class="dlg__body">
+        <p id="dlg-meta" class="meta"></p>
+        <h2 id="dlg-title"></h2>
+        <p id="dlg-summary" class="dlg__summary"></p>
+        <ul id="dlg-tags" class="tags"></ul>
+        <div class="dlg__actions">
+          <a id="dlg-open" class="btn" href="#" target="_blank" rel="noopener">Open</a>
+          <button type="button" class="iconbtn" id="dlg-close" data-i18n-label="close" aria-label="Close">
+            <svg class="ic" viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="app.js?v=20261116-5" defer></script>
+</body>
+</html>

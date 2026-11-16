@@ -1,0 +1,239 @@
+{
+  "_readme": "One object per app. New app = add one object (+ optionally an image in img/). Required: slug, name, url, summary, category. Optional: color (#rrggbb, the app's own colour for its Open button), image, emoji, version, updated (YYYY-MM-DD), tags, new, featured, pinned (always first, in every sort and filter; the portfolio is the centrepiece), details. Any text (summary, details, tags, category labels) can be a plain string or { \"en\": \"...\", \"nl\": \"...\" }; English is the fallback.",
+  "categories": {
+    "portfolio": {
+      "en": "About me",
+      "nl": "Over mij"
+    },
+    "game": {
+      "en": "Games",
+      "nl": "Spellen"
+    },
+    "tool": {
+      "en": "Tools",
+      "nl": "Tools"
+    },
+    "art": {
+      "en": "Art",
+      "nl": "Kunst"
+    },
+    "research": {
+      "en": "Research",
+      "nl": "Onderzoek"
+    }
+  },
+  "apps": [
+    {
+      "slug": "portfolio",
+      "name": "Julie Toussaint",
+      "emoji": "👤",
+      "url": "https://jt.julietous.workers.dev/",
+      "color": "#2f6fde",
+      "image": "img/portfolio.jpg?v=20261116",
+      "category": "portfolio",
+      "tags": [
+        "portfolio",
+        {
+          "en": "test automation",
+          "nl": "testautomatisatie"
+        }
+      ],
+      "version": "v11",
+      "updated": "2026-11-16",
+      "summary": {
+        "en": "My portfolio: software developer specialised in test automation.",
+        "nl": "Mijn portfolio: software developer gespecialiseerd in testautomatisatie."
+      },
+      "details": {
+        "en": "New: icons next to the skills.",
+        "nl": "Nieuw: iconen bij de vaardigheden."
+      },
+      "pinned": true
+    },
+    {
+      "slug": "webcave",
+      "name": "Webcave",
+      "emoji": "🐾",
+      "url": "https://webcave.julietous.workers.dev/",
+      "color": "#7b5cd6",
+      "image": "img/webcave.jpg?v=20261116",
+      "category": "game",
+      "tags": [
+        {
+          "en": "multiplayer",
+          "nl": "multiplayer"
+        },
+        {
+          "en": "pets",
+          "nl": "huisdieren"
+        },
+        {
+          "en": "free",
+          "nl": "gratis"
+        }
+      ],
+      "version": "v11",
+      "updated": "2026-11-16",
+      "summary": {
+        "en": "A shared dark cave where your pets hop, float and grow.",
+        "nl": "Een gedeelde donkere grot waar je huisdieren rondhuppelen, zweven en groeien."
+      },
+      "details": {
+        "en": "Free to play, together with others in the same cave. New: login protected against PIN guessing.",
+        "nl": "Gratis te spelen, samen met anderen in dezelfde grot. Nieuw: inloggen beschermd tegen het raden van PIN-codes."
+      },
+      "featured": true
+    },
+    {
+      "slug": "uptime-city",
+      "name": "Uptime City",
+      "emoji": "🏙️",
+      "url": "https://uptimecity.julietous.workers.dev/",
+      "color": "#3fa34d",
+      "image": "img/uptime-city.jpg?v=20261116",
+      "category": "game",
+      "tags": [
+        {
+          "en": "city builder",
+          "nl": "stadsbouwer"
+        },
+        {
+          "en": "board game",
+          "nl": "bordspel"
+        },
+        {
+          "en": "Belgium",
+          "nl": "België"
+        }
+      ],
+      "version": "v9",
+      "updated": "2026-11-16",
+      "summary": {
+        "en": "A cosy board-game-style city builder, set in Antwerp, Brussels, Ghent and Oasis Bay.",
+        "nl": "Een gezellige stadsbouwer op bordspelbasis, gezet in Antwerpen, Brussel, Gent en Oasis Bay."
+      },
+      "details": {
+        "en": "New: traffic queues at junctions, drones have aircraft lights.",
+        "nl": "Nieuw: verkeer wacht bij kruispunten, drones hebben vliegtuiglichten."
+      }
+    },
+    {
+      "slug": "schatkaart",
+      "name": "Schatkaart",
+      "emoji": "🃏",
+      "url": "https://schatkaart.julietous.workers.dev/",
+      "color": "#e0a526",
+      "image": "img/schatkaart.png?v=20261116",
+      "category": "tool",
+      "tags": [
+        {
+          "en": "camera",
+          "nl": "camera"
+        },
+        "Pokémon",
+        {
+          "en": "collection",
+          "nl": "verzameling"
+        }
+      ],
+      "version": "v2",
+      "updated": "2026-11-13",
+      "summary": {
+        "en": "Scan Pokémon cards with your camera, see what they're worth right away and track your collection.",
+        "nl": "Scan Pokémonkaarten met je camera, zie meteen wat ze waard zijn en houd je verzameling bij."
+      },
+      "details": {
+        "en": "New: shutter button in the middle, better on small phones, importing.",
+        "nl": "Nieuw: sluiterknop in het midden, beter op kleine telefoons, importeren."
+      }
+    },
+    {
+      "slug": "presence-audit",
+      "name": "Presence audit",
+      "emoji": "🔍",
+      "url": "https://presence-audit.julietous.workers.dev/",
+      "color": "#2a9d8f",
+      "image": "img/presence-audit.png?v=20261116b",
+      "category": "tool",
+      "tags": [
+        {
+          "en": "career",
+          "nl": "carrière"
+        },
+        {
+          "en": "visibility",
+          "nl": "zichtbaarheid"
+        },
+        {
+          "en": "report",
+          "nl": "rapport"
+        }
+      ],
+      "version": "v4",
+      "updated": "2026-11-13",
+      "summary": {
+        "en": "Find yourself online, mark which profiles are yours and get a report on how visible you are to recruiters.",
+        "nl": "Vind jezelf online, duid je profielen aan en krijg een rapport over je zichtbaarheid voor recruiters."
+      },
+      "details": {
+        "en": "New: report in tabs, its own theme and icon.",
+        "nl": "Nieuw: rapport in tabbladen, eigen thema en icoon."
+      }
+    },
+    {
+      "slug": "maskountability",
+      "name": "Maskountability",
+      "emoji": "⚖️",
+      "url": "https://maskountability.julietous.workers.dev/",
+      "color": "#5b6b7f",
+      "image": "img/maskountability.png?v=20261116",
+      "category": "research",
+      "tags": [
+        {
+          "en": "fact-check",
+          "nl": "factcheck"
+        },
+        {
+          "en": "evidence",
+          "nl": "bewijs"
+        }
+      ],
+      "version": "v3",
+      "updated": "2026-11-13",
+      "summary": {
+        "en": "Company claims, tested against the evidence. Evidence and verdict for every claim.",
+        "nl": "Bedrijfsclaims, getoetst aan het bewijs. Per claim het bewijs en het oordeel."
+      },
+      "details": {
+        "en": "New: fixed header and safer claim submission.",
+        "nl": "Nieuw: vaste kopbalk en veiliger claims insturen."
+      }
+    },
+    {
+      "slug": "liefvosje",
+      "name": "Liefvosje",
+      "emoji": "🦊",
+      "url": "https://liefvosje.julietous.workers.dev/",
+      "color": "#d2642a",
+      "image": "img/liefvosje.jpg?v=20261116b",
+      "category": "art",
+      "tags": [
+        {
+          "en": "generative",
+          "nl": "generatief"
+        },
+        "flowfield"
+      ],
+      "version": "v2",
+      "updated": "2026-11-13",
+      "summary": {
+        "en": "A red fox asleep in falling snow, grown from a spiral flow field. Every seed is a different fox.",
+        "nl": "Een rode vos die slaapt in vallende sneeuw, gegroeid uit een spiraal-flowfield. Elke seed is een andere vos."
+      },
+      "details": {
+        "en": "New: picking new seeds in quick succession is smoother.",
+        "nl": "Nieuw: snel na elkaar een nieuwe seed kiezen gaat vlotter."
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+// Cloudflare Worker-config voor het web-apps portaal (apps.julietous.workers.dev).
+// Publiceren met Wrangler: npx wrangler deploy vanuit deze map.
+// Een nieuwe app toevoegen: één object in site/apps.json (+ optioneel een beeld in site/img/).
+{
+  "name": "apps",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./site",
+    "html_handling": "auto-trailing-slash"
+  }
+}
