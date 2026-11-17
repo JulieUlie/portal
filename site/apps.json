@@ -135,15 +135,15 @@
           "nl": "België"
         }
       ],
-      "version": "v9",
-      "updated": "2026-11-16",
+      "version": "v10",
+      "updated": "2026-11-17",
       "summary": {
         "en": "A cosy board-game-style city builder, set in Antwerp, Brussels, Ghent and Oasis Bay.",
         "nl": "Een gezellige stadsbouwer op bordspelbasis, gezet in Antwerpen, Brussel, Gent en Oasis Bay."
       },
       "details": {
-        "en": "New: traffic queues at junctions, drones have aircraft lights.",
-        "nl": "Nieuw: verkeer wacht bij kruispunten, drones hebben vliegtuiglichten."
+        "en": "New: tested with Playwright (43 tests); no false \"city will be lost\" warning on a first visit, and easier-to-read menus.",
+        "nl": "Nieuw: getest met Playwright (43 tests); geen onterechte waarschuwing \"je stad gaat verloren\" bij een eerste bezoek, en beter leesbare menu's."
       }
     },
     {
@@ -227,15 +227,15 @@
           "nl": "bewijs"
         }
       ],
-      "version": "v3",
-      "updated": "2026-11-13",
+      "version": "v4",
+      "updated": "2026-11-17",
       "summary": {
         "en": "Company claims, tested against the evidence. Evidence and verdict for every claim.",
         "nl": "Bedrijfsclaims, getoetst aan het bewijs. Per claim het bewijs en het oordeel."
       },
       "details": {
-        "en": "New: fixed header and safer claim submission.",
-        "nl": "Nieuw: vaste kopbalk en veiliger claims insturen."
+        "en": "New: tested with Playwright (49 tests), and easier-to-read text for everyone (WCAG AA contrast).",
+        "nl": "Nieuw: getest met Playwright (49 tests), en beter leesbare tekst voor iedereen (WCAG AA-contrast)."
       }
     },
     {
