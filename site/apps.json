@@ -56,7 +56,7 @@
       "emoji": "⛈️",
       "url": "https://riddlestorm.julietous.workers.dev/",
       "color": "#7aa2ff",
-      "image": "img/riddlestorm.jpg?v=20261117",
+      "image": "img/riddlestorm.jpg?v=20261117b",
       "category": "research",
       "tags": [
         {
@@ -76,16 +76,16 @@
           "nl": "talen"
         }
       ],
-      "version": "v1",
+      "version": "v2",
       "updated": "2026-11-17",
       "new": true,
       "summary": {
-        "en": "A storm of riddles and sayings from 21 cultures. Lightning shows which words matter most to people.",
-        "nl": "Een storm van raadsels en gezegdes uit 21 culturen. Bliksem toont welke woorden mensen het meest betekenen."
+        "en": "A storm of riddles and sayings from 25 cultures. Lightning shows which of 50 symbolic words matter most to people.",
+        "nl": "Een storm van raadsels en gezegdes uit 25 culturen. Bliksem toont welke van 50 symbolische woorden mensen het meest betekenen."
       },
       "details": {
-        "en": "48 riddles and 15 sayings, from the Sphinx and the Exeter Book to Swahili, Chinese and Mexican folk riddles, swirl around the screen. Every few seconds lightning strikes a heavy word and lights up every riddle that uses it. Each word gets a symbolic weight (uses, cultures, links); the top 12 carry a traditional symbol. Click a word for its mind map: what it evokes, business opportunities, linked words and cultures. It closes with five languages and their typical riddles and sayings.",
-        "nl": "48 raadsels en 15 gezegdes, van de Sfinx en het Exeter Book tot Swahili, Chinese en Mexicaanse volksraadsels, wervelen over het scherm. Om de paar seconden slaat de bliksem in op een zwaar woord en lichten alle raadsels op die het gebruiken. Elk woord krijgt een symbolisch gewicht (gebruik, culturen, verbanden); de top 12 draagt een traditioneel symbool. Klik op een woord voor zijn mindmap: wat het oproept, zakelijke kansen, verwante woorden en culturen. Tot slot vijf talen met hun typische raadsels en gezegdes."
+        "en": "53 riddles and 79 sayings, from the Sphinx and the Exeter Book to Swahili, Japanese and Persian proverbs, swirl around the screen. Every few seconds lightning strikes a heavy word and lights up every riddle and saying that uses it. All 50 words have a thematic emoji symbol, tinted gold until lightning brings out their colours. A searchable word atlas ranks them by symbolic weight (uses, cultures, links), and every word opens a mind map: what it evokes, business opportunities, linked words and cultures. It closes with five languages and their typical riddles and sayings.",
+        "nl": "53 raadsels en 79 gezegdes, van de Sfinx en het Exeter Book tot Swahili, Japanse en Perzische spreekwoorden, wervelen over het scherm. Om de paar seconden slaat de bliksem in op een zwaar woord en lichten alle raadsels en gezegdes op die het gebruiken. Alle 50 woorden hebben een thematisch emoji-symbool, goud getint tot de bliksem hun kleuren toont. Een doorzoekbare woordatlas rangschikt ze op symbolisch gewicht (gebruik, culturen, verbanden), en elk woord opent een mindmap: wat het oproept, zakelijke kansen, verwante woorden en culturen. Tot slot vijf talen met hun typische raadsels en gezegdes."
       }
     },
     {
