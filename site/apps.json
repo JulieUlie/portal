@@ -165,15 +165,15 @@
           "nl": "verzameling"
         }
       ],
-      "version": "v2",
-      "updated": "2026-11-13",
+      "version": "v3",
+      "updated": "2026-11-17",
       "summary": {
         "en": "Scan Pokémon cards with your camera, see what they're worth right away and track your collection.",
         "nl": "Scan Pokémonkaarten met je camera, zie meteen wat ze waard zijn en houd je verzameling bij."
       },
       "details": {
-        "en": "New: shutter button in the middle, better on small phones, importing.",
-        "nl": "Nieuw: sluiterknop in het midden, beter op kleine telefoons, importeren."
+        "en": "New: a second card source, so about 700 more cards can be scanned and about 1,000 more have a picture. All versions of a card are grouped per artwork, with set code, number and type.",
+        "nl": "Nieuw: een tweede kaartbron, zodat ongeveer 700 kaarten extra herkend worden en ongeveer 1.000 extra een afbeelding hebben. Alle versies van een kaart zijn gegroepeerd per artwork, met setcode, nummer en type."
       }
     },
     {
