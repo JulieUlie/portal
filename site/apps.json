@@ -38,15 +38,15 @@
           "nl": "testautomatisatie"
         }
       ],
-      "version": "v11",
-      "updated": "2026-11-16",
+      "version": "v12",
+      "updated": "2026-11-17",
       "summary": {
         "en": "My portfolio: software developer specialised in test automation.",
         "nl": "Mijn portfolio: software developer gespecialiseerd in testautomatisatie."
       },
       "details": {
-        "en": "New: icons next to the skills.",
-        "nl": "Nieuw: iconen bij de vaardigheden."
+        "en": "New: a link to ApplyTrack, marked as a personal project, separate from work.",
+        "nl": "Nieuw: een link naar ApplyTrack, aangeduid als persoonlijk project, los van het werk."
       },
       "pinned": true
     },
