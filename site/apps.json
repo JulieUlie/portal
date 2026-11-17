@@ -198,15 +198,15 @@
           "nl": "rapport"
         }
       ],
-      "version": "v4",
-      "updated": "2026-11-13",
+      "version": "v5",
+      "updated": "2026-11-17",
       "summary": {
         "en": "Find yourself online, mark which profiles are yours and get a report on how visible you are to recruiters.",
         "nl": "Vind jezelf online, duid je profielen aan en krijg een rapport over je zichtbaarheid voor recruiters."
       },
       "details": {
-        "en": "New: report in tabs, its own theme and icon.",
-        "nl": "Nieuw: rapport in tabbladen, eigen thema en icoon."
+        "en": "New: tested with Playwright and Postman, with a link to the public test collection.",
+        "nl": "Nieuw: getest met Playwright en Postman, met een link naar de publieke testcollectie."
       }
     },
     {
