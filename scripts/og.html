@@ -19,17 +19,17 @@
     background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px);
     background-size: 40px 40px; }
 
-  .left { position: absolute; left: 72px; top: 0; bottom: 0; width: 470px; display: flex; flex-direction: column; justify-content: center; }
+  .left { position: absolute; left: 64px; top: 0; bottom: 0; width: 410px; display: flex; flex-direction: column; justify-content: center; }
   .logo { width: 64px; height: 64px; }
   .eyebrow { font: 600 18px "IBM Plex Mono", monospace; letter-spacing: .14em; color: #c9c5d2; margin-top: 30px; }
-  h1 { font-size: 84px; line-height: 1; letter-spacing: -.03em; font-weight: 700; margin-top: 14px; }
-  p { font-size: 25px; line-height: 1.45; color: #c2bfcb; margin-top: 22px; }
+  h1 { font-size: 78px; line-height: 1; letter-spacing: -.03em; font-weight: 700; margin-top: 14px; }
+  p { font-size: 23px; line-height: 1.45; color: #c2bfcb; margin-top: 22px; }
   .stats { display: flex; gap: 10px; margin-top: 28px; flex-wrap: wrap; }
   .chip { font: 500 15px "IBM Plex Mono", monospace; padding: 6px 12px; border-radius: 99px; color: #e9e7ee;
     background: linear-gradient(#111019, #111019) padding-box, linear-gradient(90deg, var(--rainbow)) border-box; border: 1.5px solid transparent; }
-  .url { position: absolute; left: 72px; bottom: 44px; font: 400 21px "IBM Plex Mono", monospace; color: #9a96a6; }
+  .url { position: absolute; left: 64px; bottom: 44px; font: 400 21px "IBM Plex Mono", monospace; color: #9a96a6; }
 
-  .grid { position: absolute; right: 56px; top: 36px; display: grid; grid-template-columns: repeat(2, 252px); grid-auto-rows: 132px; gap: 12px; }
+  .grid { position: absolute; right: 48px; top: 50%; transform: translateY(-50%); display: grid; grid-template-columns: repeat(3, 208px); grid-auto-rows: 109px; gap: 12px; }
   .card { position: relative; border-radius: 12px; padding: 2px;
     background: conic-gradient(from calc(var(--i) * 40deg), var(--rainbow));
     box-shadow: 0 0 22px rgba(122, 92, 255, .22), 0 10px 30px rgba(0, 0, 0, .45); }
@@ -46,13 +46,14 @@
     </svg>
     <div class="eyebrow">JULIE TOUSSAINT</div>
     <h1>Web apps</h1>
-    <p>Eight things I built and host myself. Pick one and open it right in your browser.</p>
-    <div class="stats"><span class="chip">8 apps</span><span class="chip">6 with automated tests</span></div>
+    <p>Nine things I built and host myself. Pick one and open it right in your browser.</p>
+    <div class="stats"><span class="chip">9 apps</span><span class="chip">6 with automated tests</span></div>
   </div>
   <div class="url">apps.julietous.workers.dev</div>
 
   <div class="grid">
     <div class="card" style="--i:0"><img src="../site/img/portfolio.jpg" alt=""></div>
+    <div class="card new" style="--i:8"><img src="../site/img/riddlestorm.jpg" alt=""></div>
     <div class="card new" style="--i:1"><img src="../site/img/applytrack.png" alt=""></div>
     <div class="card" style="--i:2"><img src="../site/img/presence-audit.png" alt=""></div>
     <div class="card" style="--i:3"><img src="../site/img/webcave.jpg" alt=""></div>
