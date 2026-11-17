@@ -56,7 +56,7 @@
       "emoji": "✅",
       "url": "https://applytrack.julietous.workers.dev/",
       "color": "#0c5afe",
-      "image": "img/applytrack.png?v=20261117b",
+      "image": "img/applytrack.png?v=20261117c",
       "category": "tool",
       "tags": [
         {
@@ -75,7 +75,7 @@
         "nl": "Playwright en REST API-testen: mijn showcase van de vaardigheden die QA-automatiseringsrollen vragen."
       },
       "details": {
-        "en": "A small job application tracker with its own REST API, built to show Playwright and API testing next to my five years of Ranorex and C#. 173 Playwright tests in TypeScript (API, contract, UI in Chromium, Firefox, WebKit and mobile, mocking, accessibility) and a Postman collection run with Newman. The board explains itself: an Under the hood panel shows the REST call behind every click and the test that covers it.",
+        "en": "A small job application tracker with its own REST API, built to show Playwright and API testing next to my five years of Ranorex and C#. 179 Playwright tests in TypeScript (API, contract, UI in Chromium, Firefox, WebKit and mobile, mocking, accessibility) and a Postman collection run with Newman. The board explains itself: an Under the hood panel shows the REST call behind every click and the test that covers it.",
         "nl": "Een kleine sollicitatietracker met een eigen REST API, gebouwd om Playwright en API-testen te tonen naast mijn vijf jaar Ranorex en C#. 173 Playwright-tests in TypeScript (API, contract, UI in Chromium, Firefox, WebKit en mobiel, mocking, toegankelijkheid) en een Postman-collectie die met Newman draait. Het bord legt zichzelf uit: een Under the hood-paneel toont de REST-call achter elke klik en de test die hem dekt."
       }
     },
