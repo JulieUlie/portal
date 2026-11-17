@@ -101,15 +101,15 @@
           "nl": "gratis"
         }
       ],
-      "version": "v11",
-      "updated": "2026-11-16",
+      "version": "v12",
+      "updated": "2026-11-17",
       "summary": {
         "en": "A shared dark cave where your pets hop, float and grow.",
         "nl": "Een gedeelde donkere grot waar je huisdieren rondhuppelen, zweven en groeien."
       },
       "details": {
-        "en": "Free to play, together with others in the same cave. New: login protected against PIN guessing.",
-        "nl": "Gratis te spelen, samen met anderen in dezelfde grot. Nieuw: inloggen beschermd tegen het raden van PIN-codes."
+        "en": "Free to play, together with others in the same cave. New: fixes found by automated tests: the tour is never hidden behind other players, Enter works on every button, and a new account can no longer get lost.",
+        "nl": "Gratis te spelen, samen met anderen in dezelfde grot. Nieuw: oplossingen gevonden door geautomatiseerde tests: de rondleiding raakt nooit meer achter andere spelers, Enter werkt op elke knop, en een nieuw account kan niet meer verloren gaan."
       },
       "featured": true
     },
