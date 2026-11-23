@@ -38,15 +38,15 @@
           "nl": "testautomatisatie"
         }
       ],
-      "version": "v12",
-      "updated": "2026-11-17",
+      "version": "v13",
+      "updated": "2026-11-23",
       "summary": {
         "en": "My portfolio: software developer specialised in test automation.",
         "nl": "Mijn portfolio: software developer gespecialiseerd in testautomatisatie."
       },
       "details": {
-        "en": "New: a link to ApplyTrack, marked as a personal project, separate from work.",
-        "nl": "Nieuw: een link naar ApplyTrack, aangeduid als persoonlijk project, los van het werk."
+        "en": "New: a keyboard-friendly phone menu, a browser bar that matches light and dark mode, clearer screen-reader labels and keyboard-scrollable Lab code.",
+        "nl": "Nieuw: een telefoonmenu dat met het toetsenbord werkt, een browserbalk die meekleurt met licht en donker, duidelijkere labels voor schermlezers en Lab-code die je met het toetsenbord scrolt."
       },
       "pinned": true
     },
@@ -76,16 +76,16 @@
           "nl": "talen"
         }
       ],
-      "version": "v3",
-      "updated": "2026-11-17",
+      "version": "v4",
+      "updated": "2026-11-23",
       "new": true,
       "summary": {
         "en": "A storm of riddles and sayings from 25 cultures. Lightning shows which of 50 symbolic words matter most to people.",
         "nl": "Een storm van raadsels en gezegdes uit 25 culturen. Bliksem toont welke van 50 symbolische woorden mensen het meest betekenen."
       },
       "details": {
-        "en": "53 riddles and 79 sayings, from the Sphinx and the Exeter Book to Swahili, Japanese and Persian proverbs, swirl around the screen. Every few seconds lightning strikes a heavy word and lights up every riddle and saying that uses it. All 50 words have a thematic emoji symbol, tinted gold until lightning brings out their colours. A searchable word atlas ranks them by symbolic weight (uses, cultures, links), and every word opens a mind map: what it evokes, business opportunities, linked words and cultures. It closes with five languages and their typical riddles and sayings. Covered by 35 Playwright tests, which found and fixed a stalling intro, a mind-map accessibility issue and a strike-timer bug.",
-        "nl": "53 raadsels en 79 gezegdes, van de Sfinx en het Exeter Book tot Swahili, Japanse en Perzische spreekwoorden, wervelen over het scherm. Om de paar seconden slaat de bliksem in op een zwaar woord en lichten alle raadsels en gezegdes op die het gebruiken. Alle 50 woorden hebben een thematisch emoji-symbool, goud getint tot de bliksem hun kleuren toont. Een doorzoekbare woordatlas rangschikt ze op symbolisch gewicht (gebruik, culturen, verbanden), en elk woord opent een mindmap: wat het oproept, zakelijke kansen, verwante woorden en culturen. Tot slot vijf talen met hun typische raadsels en gezegdes. Gedekt door 35 Playwright-tests, die een haperende intro, een toegankelijkheidsprobleem in de mindmap en een fout in de bliksemtimer vonden en lieten oplossen."
+        "en": "53 riddles and 79 sayings, from the Sphinx and the Exeter Book to Swahili, Japanese and Persian proverbs, swirl around the screen. Every few seconds lightning strikes a heavy word and lights up every riddle and saying that uses it. All 50 words have a thematic emoji symbol, tinted gold until lightning brings out their colours. A searchable word atlas ranks them by symbolic weight (uses, cultures, links), and every word opens a mind map: what it evokes, business opportunities, linked words and cultures. It closes with five languages and their typical riddles and sayings. Covered by 43 Playwright tests. New in v4: calmer reading over the storm, a solid header while scrolling, shorter language cards with \"Show more\", and an opaque word drawer on phones.",
+        "nl": "53 raadsels en 79 gezegdes, van de Sfinx en het Exeter Book tot Swahili, Japanse en Perzische spreekwoorden, wervelen over het scherm. Om de paar seconden slaat de bliksem in op een zwaar woord en lichten alle raadsels en gezegdes op die het gebruiken. Alle 50 woorden hebben een thematisch emoji-symbool, goud getint tot de bliksem hun kleuren toont. Een doorzoekbare woordatlas rangschikt ze op symbolisch gewicht (gebruik, culturen, verbanden), en elk woord opent een mindmap: wat het oproept, zakelijke kansen, verwante woorden en culturen. Tot slot vijf talen met hun typische raadsels en gezegdes. Gedekt door 43 Playwright-tests. Nieuw in v4: rustiger lezen boven de storm, een vaste kopbalk tijdens het scrollen, kortere taalkaarten met \"Toon meer\", en een ondoorzichtige woordlade op telefoons."
       }
     },
     {
@@ -94,7 +94,7 @@
       "emoji": "✅",
       "url": "https://applytrack.julietous.workers.dev/",
       "color": "#0c5afe",
-      "image": "img/applytrack.png?v=20261117c",
+      "image": "img/applytrack.png?v=20261123",
       "category": "tool",
       "tags": [
         {
@@ -105,16 +105,16 @@
         "Postman",
         "REST API"
       ],
-      "version": "v1",
-      "updated": "2026-11-17",
+      "version": "v2",
+      "updated": "2026-11-23",
       "new": true,
       "summary": {
         "en": "Playwright and REST API testing: my showcase of the skills QA automation roles ask for.",
         "nl": "Playwright en REST API-testen: mijn showcase van de vaardigheden die QA-automatiseringsrollen vragen."
       },
       "details": {
-        "en": "A small job application tracker with its own REST API, built to show Playwright and API testing next to my five years of Ranorex and C#. 179 Playwright tests in TypeScript (API, contract, UI in Chromium, Firefox, WebKit and mobile, mocking, accessibility) and a Postman collection run with Newman. The board explains itself: an Under the hood panel shows the REST call behind every click and the test that covers it.",
-        "nl": "Een kleine sollicitatietracker met een eigen REST API, gebouwd om Playwright en API-testen te tonen naast mijn vijf jaar Ranorex en C#. 173 Playwright-tests in TypeScript (API, contract, UI in Chromium, Firefox, WebKit en mobiel, mocking, toegankelijkheid) en een Postman-collectie die met Newman draait. Het bord legt zichzelf uit: een Under the hood-paneel toont de REST-call achter elke klik en de test die hem dekt."
+        "en": "A small job application tracker with its own REST API, built to show Playwright and API testing next to my five years of Ranorex and C#. 196 Playwright tests in TypeScript (API, contract, UI in Chromium, Firefox, WebKit and mobile, mocking, accessibility) and a Postman collection run with Newman. The board explains itself: an Under the hood panel shows the REST call behind every click and the test that covers it. New in v2: a readable board on 1024px screens, no more stale search results, local dates in the date picker and a clearer error banner.",
+        "nl": "Een kleine sollicitatietracker met een eigen REST API, gebouwd om Playwright en API-testen te tonen naast mijn vijf jaar Ranorex en C#. 196 Playwright-tests in TypeScript (API, contract, UI in Chromium, Firefox, WebKit en mobiel, mocking, toegankelijkheid) en een Postman-collectie die met Newman draait. Het bord legt zichzelf uit: een Under the hood-paneel toont de REST-call achter elke klik en de test die hem dekt. Nieuw in v2: een leesbaar bord op 1024px-schermen, geen verouderde zoekresultaten meer, lokale datums in de datumkiezer en een duidelijkere foutmelding."
       }
     },
     {
@@ -139,15 +139,15 @@
           "nl": "gratis"
         }
       ],
-      "version": "v13",
-      "updated": "2026-11-17",
+      "version": "v14",
+      "updated": "2026-11-23",
       "summary": {
         "en": "A shared dark cave where your pets hop, float and grow.",
         "nl": "Een gedeelde donkere grot waar je huisdieren rondhuppelen, zweven en groeien."
       },
       "details": {
-        "en": "Free to play, together with others in the same cave. New: six shimmering ultra rarities above Primordial, from Prismatic up to Infinity (22 rarities plus 4 seasonal ones), an all-time Rarest pets board, and 33 achievements. Covered by 36 Playwright tests.",
-        "nl": "Gratis te spelen, samen met anderen in dezelfde grot. Nieuw: zes glinsterende ultra-zeldzaamheden boven Primordial, van Prismatic tot Infinity (22 zeldzaamheden plus 4 seizoensgebonden), een bord met de zeldzaamste huisdieren aller tijden, en 33 prestaties. Gedekt door 36 Playwright-tests."
+        "en": "Free to play, together with others in the same cave: 22 rarities plus 4 seasonal ones, an all-time Rarest pets board and 33 achievements. New in v14: full keyboard play, a cave that fits wide screens, a tidier egg shop and calmer reduced motion. Covered by 44 Playwright tests.",
+        "nl": "Gratis te spelen, samen met anderen in dezelfde grot: 22 zeldzaamheden plus 4 seizoensgebonden, een bord met de zeldzaamste huisdieren aller tijden en 33 prestaties. Nieuw in v14: volledig speelbaar met het toetsenbord, een grot die op brede schermen past, een overzichtelijkere eierwinkel en rustigere beweging bij beperkte animaties. Gedekt door 44 Playwright-tests."
       },
       "featured": true
     },
@@ -173,15 +173,15 @@
           "nl": "België"
         }
       ],
-      "version": "v10",
-      "updated": "2026-11-17",
+      "version": "v11",
+      "updated": "2026-11-23",
       "summary": {
         "en": "A cosy board-game-style city builder, set in Antwerp, Brussels, Ghent and Oasis Bay.",
         "nl": "Een gezellige stadsbouwer op bordspelbasis, gezet in Antwerpen, Brussel, Gent en Oasis Bay."
       },
       "details": {
-        "en": "New: tested with Playwright (43 tests); no false \"city will be lost\" warning on a first visit, and easier-to-read menus.",
-        "nl": "Nieuw: getest met Playwright (43 tests); geen onterechte waarschuwing \"je stad gaat verloren\" bij een eerste bezoek, en beter leesbare menu's."
+        "en": "New: a Mayor's office menu that scrolls on short screens and works as a real dialog, full resource names in the Market, readable contrast everywhere, and live weather that no longer mixes up cities. 56 Playwright tests.",
+        "nl": "Nieuw: een burgemeestersmenu dat scrolt op lage schermen en als echte dialoog werkt, volledige grondstofnamen in de Markt, overal leesbaar contrast, en live weer dat steden niet meer door elkaar haalt. 56 Playwright-tests."
       }
     },
     {
@@ -203,15 +203,15 @@
           "nl": "verzameling"
         }
       ],
-      "version": "v3",
-      "updated": "2026-11-17",
+      "version": "v4",
+      "updated": "2026-11-23",
       "summary": {
         "en": "Scan Pokémon cards with your camera, see what they're worth right away and track your collection.",
         "nl": "Scan Pokémonkaarten met je camera, zie meteen wat ze waard zijn en houd je verzameling bij."
       },
       "details": {
-        "en": "New: a second card source, so about 700 more cards can be scanned and about 1,000 more have a picture. All versions of a card are grouped per artwork, with set code, number and type.",
-        "nl": "Nieuw: een tweede kaartbron, zodat ongeveer 700 kaarten extra herkend worden en ongeveer 1.000 extra een afbeelding hebben. Alle versies van een kaart zijn gegroepeerd per artwork, met setcode, nummer en type."
+        "en": "New: honest totals when a card only has a price in the other currency, no sideways scrolling on phones, scan buttons that stay visible after a find, and clearer messages when prices can't refresh. 87 Playwright tests.",
+        "nl": "Nieuw: eerlijke totalen als een kaart enkel een prijs in de andere munt heeft, niet meer zijwaarts scrollen op telefoons, scanknoppen die zichtbaar blijven na een vondst, en duidelijkere meldingen als prijzen niet vernieuwd kunnen worden. 87 Playwright-tests."
       }
     },
     {
@@ -236,15 +236,15 @@
           "nl": "rapport"
         }
       ],
-      "version": "v5",
-      "updated": "2026-11-17",
+      "version": "v6",
+      "updated": "2026-11-23",
       "summary": {
         "en": "Find yourself online, mark which profiles are yours and get a report on how visible you are to recruiters.",
         "nl": "Vind jezelf online, duid je profielen aan en krijg een rapport over je zichtbaarheid voor recruiters."
       },
       "details": {
-        "en": "New: tested with Playwright and Postman, with a link to the public test collection.",
-        "nl": "Nieuw: getest met Playwright en Postman, met een link naar de publieke testcollectie."
+        "en": "New: a report you can use fully with the keyboard (real tabs, focus that follows the report), plain-language errors when the server is busy, and the privacy note on phones too. 32 Playwright tests and 41 Postman checks.",
+        "nl": "Nieuw: een rapport dat volledig met het toetsenbord werkt (echte tabbladen, focus die het rapport volgt), begrijpelijke foutmeldingen als de server druk is, en de privacymelding nu ook op telefoons. 32 Playwright-tests en 41 Postman-controles."
       }
     },
     {
@@ -265,15 +265,15 @@
           "nl": "bewijs"
         }
       ],
-      "version": "v4",
-      "updated": "2026-11-17",
+      "version": "v5",
+      "updated": "2026-11-23",
       "summary": {
         "en": "Company claims, tested against the evidence. Evidence and verdict for every claim.",
         "nl": "Bedrijfsclaims, getoetst aan het bewijs. Per claim het bewijs en het oordeel."
       },
       "details": {
-        "en": "New: tested with Playwright (49 tests), and easier-to-read text for everyone (WCAG AA contrast).",
-        "nl": "Nieuw: getest met Playwright (49 tests), en beter leesbare tekst voor iedereen (WCAG AA-contrast)."
+        "en": "New: a refused claim points to the exact field to fix, dark mode now covers checkboxes and menus, sturdier case pages, and a corrected answer about what is stored. 60 Playwright tests.",
+        "nl": "Nieuw: een geweigerde claim wijst het juiste veld aan, de donkere modus geldt nu ook voor vinkjes en menu's, stevigere dossierpagina's, en een gecorrigeerd antwoord over wat bewaard wordt. 60 Playwright-tests."
       }
     },
     {
@@ -291,15 +291,15 @@
         },
         "flowfield"
       ],
-      "version": "v2",
-      "updated": "2026-11-13",
+      "version": "v3",
+      "updated": "2026-11-23",
       "summary": {
         "en": "A red fox asleep in falling snow, grown from a spiral flow field. Every seed is a different fox.",
         "nl": "Een rode vos die slaapt in vallende sneeuw, gegroeid uit een spiraal-flowfield. Elke seed is een andere vos."
       },
       "details": {
-        "en": "New: picking new seeds in quick succession is smoother.",
-        "nl": "Nieuw: snel na elkaar een nieuwe seed kiezen gaat vlotter."
+        "en": "New: every fox has its own link (?seed=), colours redraw while you drag, \"Reset sliders\" keeps your fox, and better contrast and keyboard focus. 10 Playwright tests.",
+        "nl": "Nieuw: elke vos heeft een eigen link (?seed=), kleuren tekenen mee terwijl je sleept, \"Reset sliders\" houdt je vos, en beter contrast en toetsenbordfocus. 10 Playwright-tests."
       }
     }
   ]
