@@ -308,21 +308,11 @@ img { display: block; max-width: 100%; }
 }
 
 /* ---------- Motion ----------
-   Load: a rainbow scan line runs down the screen and every card powers on (CRT style) as the line reaches it.
-   Paging: cards leave against the swipe direction and the new page slides in with it.
+   All cards animate at the same moment (no stagger), so the overview is there at once.
+   Load: every card powers on together (CRT style).
+   Paging: the page leaves against the swipe direction and the new page slides in with it.
    Sort/filter: cards that stay glide to their new spot (FLIP in app.js), new ones power on.
    Dialog: grows out of the card that was clicked and shrinks back into it. */
-.scan { position: fixed; left: 0; right: 0; top: 0; z-index: 5; height: 2px; pointer-events: none; opacity: 0;
-  background: var(--rainbow-lin); box-shadow: 0 0 16px 2px rgba(122, 92, 255, .75), 0 0 46px 8px rgba(61, 180, 255, .3); }
-.scan::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 90px;
-  background: linear-gradient(180deg, transparent, rgba(61, 180, 255, .07)); }
-.scan.go { animation: scan var(--scan, 1.1s) linear both; }
-@keyframes scan {
-  0% { transform: translateY(0); opacity: 0; }
-  6%, 88% { opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
 .card.boot { animation: boot .8s cubic-bezier(.2, .8, .2, 1) var(--d, 0ms) backwards; }
 @keyframes boot {
   0% { clip-path: inset(49.5% 50% 49.5% 50% round 16px); filter: brightness(3) saturate(0); }

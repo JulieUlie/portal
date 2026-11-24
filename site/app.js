@@ -226,7 +226,7 @@
     const { w, h } = stageSize(paged);
     const plan = shown.length ? arrange(shown.length, w, h) : { rows: [], widths: [] };
     // a re-render while the load sequence is still running (resize, font swap) keeps the sequence going
-    if (!motion && performance.now() - bootStart < SCAN_MS + 900) motion = { type: "boot", resume: true };
+    if (!motion && performance.now() - bootStart < BOOT_MS) motion = { type: "boot", resume: true };
     const m = reduce.matches ? null : motion; motion = null;
     const before = m?.type === "flip" ? rects() : null;
     let k = 0;
@@ -253,46 +253,35 @@
     grid.querySelectorAll(".card").forEach((c) => map.set(c.dataset.slug, c.parentElement.getBoundingClientRect()));
     return map;
   }
-  const scan = $("#scan");
-  const SCAN_MS = 1100;
+  // All cards animate at the same moment (no stagger), so the whole overview is there at once.
+  const BOOT_MS = 800;
   let bootStart = -1e9;
-  scan.addEventListener("animationend", () => scan.classList.remove("go"));
   function play(m, before) {
     const cards = [...grid.querySelectorAll(".card")];
     const done = (c) => c.addEventListener("animationend", (e) => {
       if (e.target === c && (e.animationName === "boot" || e.animationName === "slide")) c.classList.remove("boot", "slide");
     });
     if (m.type === "boot") {
-      // the scan line runs down the screen; each card powers on when the line reaches its top edge
-      const elapsed = m.resume ? performance.now() - bootStart : 0;
-      if (!m.resume) {
-        bootStart = performance.now();
-        scan.style.setProperty("--scan", SCAN_MS + "ms");
-        scan.classList.remove("go"); void scan.offsetWidth; scan.classList.add("go");
-      }
-      cards.forEach((c) => {
-        const r = c.parentElement.getBoundingClientRect();
-        const d = Math.max(0, (r.top / innerHeight) * SCAN_MS * 0.94) + (r.left / innerWidth) * 90 - elapsed;
-        c.style.setProperty("--d", Math.round(d) + "ms");
-        c.classList.add("boot"); done(c);
-      });
+      // every card powers on together; a re-render mid-way continues at the same point
+      if (!m.resume) bootStart = performance.now();
+      const d = -Math.round(performance.now() - bootStart);
+      cards.forEach((c) => { c.style.setProperty("--d", d + "ms"); c.classList.add("boot"); done(c); });
     } else if (m.type === "page") {
-      cards.forEach((c, i) => {
-        c.style.setProperty("--d", i * 40 + "ms");
+      cards.forEach((c) => {
+        c.style.setProperty("--d", "0ms");
         c.style.setProperty("--dx", m.dir * 56 + "px");
         c.classList.add("slide"); done(c);
       });
     } else if (m.type === "flip") {
-      let fresh = 0;
-      cards.forEach((c, i) => {
+      cards.forEach((c) => {
         const o = before.get(c.dataset.slug);
-        if (!o) { c.style.setProperty("--d", 120 + fresh++ * 55 + "ms"); c.classList.add("boot"); done(c); return; }
+        if (!o) { c.style.setProperty("--d", "0ms"); c.classList.add("boot"); done(c); return; }
         const n = c.parentElement.getBoundingClientRect();
         const dx = o.left + o.width / 2 - (n.left + n.width / 2), dy = o.top + o.height / 2 - (n.top + n.height / 2);
         const s = o.width / n.width;
         if (Math.abs(dx) < 1 && Math.abs(dy) < 1 && Math.abs(s - 1) < 0.01) return;
         c.animate([{ translate: `${dx}px ${dy}px`, scale: s }, { translate: "0 0", scale: 1 }],
-          { duration: 560, delay: i * 22, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" });
+          { duration: 560, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" });
       });
     }
   }

@@ -15,7 +15,8 @@ All of Julie Toussaint's web apps in one place. Pick one and open it right in yo
 
 Every animation has a job: it shows where something came from or where it went.
 
-- **Load:** a rainbow scan line runs down the screen, and each card powers on like a CRT (a thin bright line that opens into the banner) as the line reaches it.
+- **All at once:** every card animates at the same moment, with no stagger, so the whole overview is there straight away.
+- **Load:** all cards power on together like a CRT (a thin bright line that opens into the banner).
 - **Sort and filter:** cards that stay on screen glide to their new place (FLIP), and new ones power on.
 - **Paging:** the current page leaves against the direction of travel and the next one slides in with it (buttons, arrow keys, swipe or mouse wheel).
 - **Details:** the pop-up grows out of the card you clicked. The banner travels into place first and the details unfold under it. Closing (button, backdrop, Esc or Back) shrinks it back into the card.
