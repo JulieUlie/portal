@@ -38,15 +38,15 @@
           "nl": "testautomatisatie"
         }
       ],
-      "version": "v13",
-      "updated": "2026-11-23",
+      "version": "v14",
+      "updated": "2026-11-24",
       "summary": {
-        "en": "My portfolio: software developer specialised in test automation.",
-        "nl": "Mijn portfolio: software developer gespecialiseerd in testautomatisatie."
+        "en": "My portfolio: full-stack test automation (QA) and full-stack development in C# and PL/SQL.",
+        "nl": "Mijn portfolio: full-stack testautomatisatie (QA) en full-stack development in C# en PL/SQL."
       },
       "details": {
-        "en": "New: a keyboard-friendly phone menu, a browser bar that matches light and dark mode, clearer screen-reader labels and keyboard-scrollable Lab code.",
-        "nl": "Nieuw: een telefoonmenu dat met het toetsenbord werkt, een browserbalk die meekleurt met licht en donker, duidelijkere labels voor schermlezers en Lab-code die je met het toetsenbord scrolt."
+        "en": "Two profiles, test automation and C#/PL/SQL development, with responsibilities, key figures and highlights told as problem, approach and result.",
+        "nl": "Twee profielen, testautomatisatie en C#/PL/SQL-development, met verantwoordelijkheden, kerncijfers en uitgelichte cases als probleem, aanpak en resultaat."
       },
       "pinned": true
     },
