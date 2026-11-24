@@ -5,6 +5,10 @@
   const $ = (s) => document.querySelector(s);
   const grid = $("#grid"), cats = $("#cats"), sortBtn = $("#sort");
   const count = $("#count"), empty = $("#empty"), dlg = $("#dlg");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)");
+  const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
+  // what the next render() should animate: { type: "boot" | "page" | "flip", dir }; null = no animation (resize, language)
+  let motion = null;
 
   // ---------- Interface texts ----------
   const UI = {
@@ -80,6 +84,7 @@
     document.querySelectorAll("[data-i18n-ph]").forEach((n) => { n.placeholder = t[n.dataset.i18nPh]; });
     document.querySelectorAll("[data-i18n-label]").forEach((n) => n.setAttribute("aria-label", t[n.dataset.i18nLabel]));
     document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === state.lang)));
+    $(".lang").dataset.active = state.lang;   // moves the sliding rainbow pill
   }
   document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => {
     if (state.lang === b.dataset.lang) return;
@@ -113,9 +118,8 @@
   function card(a, i) {
     const titleBtn = el("button", { type: "button", "aria-haspopup": "dialog", text: a.name });
     titleBtn.addEventListener("click", () => openApp(a.slug));
-    // stagger the border rotation so the cards do not spin in lockstep
-    // ring + glow are rotating gradient layers (GPU transform), not repainted gradients
-    const art = el("article", { class: "card", style: `--delay:${sync()}` },
+    // ring + glow are rotating gradient layers (GPU transform), not repainted gradients; all on one shared clock
+    const art = el("article", { class: "card", "data-slug": a.slug, style: `--delay:${sync()}` },
       el("div", { class: "card__glow", "aria-hidden": "true" }, el("i")),
       el("div", { class: "card__ring", "aria-hidden": "true" }, el("i")),
       media(a, "card__media"),
@@ -147,15 +151,19 @@
       byPin(x, y) || (y.featured === true) - (x.featured === true) || (y.updated || "").localeCompare(x.updated || "") || byName(x, y));
   }
 
+  let picked = null;   // the chip that was just clicked gets a one-off lock-on pulse
   function renderCats() {
     const counts = apps.reduce((m, a) => ((m[a.category] = (m[a.category] || 0) + 1), m), {});
     // order from apps.json, unknown categories at the end
     const keys = [...new Set([...Object.keys(categories), ...Object.keys(counts)])].filter((k) => counts[k]);
     const entries = [["all", T().all, apps.length], ...keys.map((k) => [k, catLabel(k), counts[k]])];
     cats.replaceChildren(...entries.map(([key, label, n]) => {
-      const b = el("button", { type: "button", class: "chip", role: "tab", "aria-selected": String(state.cat === key), style: `--delay:${sync()}` },
+      const b = el("button", { type: "button", class: "chip" + (picked === key ? " pick" : ""), role: "tab", "aria-selected": String(state.cat === key), style: `--delay:${sync()}` },
         label, el("span", { class: "chip__n", text: n }));
-      b.addEventListener("click", () => { state.cat = key; state.page = 0; update(); });
+      b.addEventListener("click", () => {
+        if (state.cat === key) return;
+        state.cat = key; state.page = 0; picked = key; motion = { type: "flip" }; update(); picked = null;
+      });
       return b;
     }));
   }
@@ -217,6 +225,10 @@
     const shown = list.slice(start, start + per);
     const { w, h } = stageSize(paged);
     const plan = shown.length ? arrange(shown.length, w, h) : { rows: [], widths: [] };
+    // a re-render while the load sequence is still running (resize, font swap) keeps the sequence going
+    if (!motion && performance.now() - bootStart < SCAN_MS + 900) motion = { type: "boot", resume: true };
+    const m = reduce.matches ? null : motion; motion = null;
+    const before = m?.type === "flip" ? rects() : null;
     let k = 0;
     grid.replaceChildren(...plan.rows.map((c, r) => {
       const width = Math.floor(plan.widths[r]);
@@ -231,7 +243,96 @@
     empty.hidden = list.length > 0;
     count.textContent = list.length === apps.length ? String(apps.length).padStart(2, "0") : `${String(list.length).padStart(2, "0")} / ${String(apps.length).padStart(2, "0")}`;
     renderPager(pages);
+    if (m) play(m, before);
   }
+
+  // ---------- Motion ----------
+  // card centres before a re-render, so cards that stay on screen can glide from their old spot (FLIP)
+  function rects() {
+    const map = new Map();
+    grid.querySelectorAll(".card").forEach((c) => map.set(c.dataset.slug, c.parentElement.getBoundingClientRect()));
+    return map;
+  }
+  const scan = $("#scan");
+  const SCAN_MS = 1100;
+  let bootStart = -1e9;
+  scan.addEventListener("animationend", () => scan.classList.remove("go"));
+  function play(m, before) {
+    const cards = [...grid.querySelectorAll(".card")];
+    const done = (c) => c.addEventListener("animationend", (e) => {
+      if (e.target === c && (e.animationName === "boot" || e.animationName === "slide")) c.classList.remove("boot", "slide");
+    });
+    if (m.type === "boot") {
+      // the scan line runs down the screen; each card powers on when the line reaches its top edge
+      const elapsed = m.resume ? performance.now() - bootStart : 0;
+      if (!m.resume) {
+        bootStart = performance.now();
+        scan.style.setProperty("--scan", SCAN_MS + "ms");
+        scan.classList.remove("go"); void scan.offsetWidth; scan.classList.add("go");
+      }
+      cards.forEach((c) => {
+        const r = c.parentElement.getBoundingClientRect();
+        const d = Math.max(0, (r.top / innerHeight) * SCAN_MS * 0.94) + (r.left / innerWidth) * 90 - elapsed;
+        c.style.setProperty("--d", Math.round(d) + "ms");
+        c.classList.add("boot"); done(c);
+      });
+    } else if (m.type === "page") {
+      cards.forEach((c, i) => {
+        c.style.setProperty("--d", i * 40 + "ms");
+        c.style.setProperty("--dx", m.dir * 56 + "px");
+        c.classList.add("slide"); done(c);
+      });
+    } else if (m.type === "flip") {
+      let fresh = 0;
+      cards.forEach((c, i) => {
+        const o = before.get(c.dataset.slug);
+        if (!o) { c.style.setProperty("--d", 120 + fresh++ * 55 + "ms"); c.classList.add("boot"); done(c); return; }
+        const n = c.parentElement.getBoundingClientRect();
+        const dx = o.left + o.width / 2 - (n.left + n.width / 2), dy = o.top + o.height / 2 - (n.top + n.height / 2);
+        const s = o.width / n.width;
+        if (Math.abs(dx) < 1 && Math.abs(dy) < 1 && Math.abs(s - 1) < 0.01) return;
+        c.animate([{ translate: `${dx}px ${dy}px`, scale: s }, { translate: "0 0", scale: 1 }],
+          { duration: 560, delay: i * 22, easing: "cubic-bezier(.2,.8,.2,1)", fill: "backwards" });
+      });
+    }
+  }
+
+  // 3D tilt + glare toward the pointer (mouse/trackpad only)
+  let tilted = null;
+  grid.addEventListener("pointermove", (e) => {
+    if (!finePointer.matches || reduce.matches) return;
+    const c = e.target.closest(".card");
+    if (tilted && tilted !== c) untilt();
+    if (!c) return;
+    const r = c.parentElement.getBoundingClientRect();   // untransformed box
+    const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
+    const y = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height));
+    c.classList.add("tilt"); tilted = c;
+    c.style.setProperty("--ry", ((x - 0.5) * 9).toFixed(2) + "deg");
+    c.style.setProperty("--rx", ((0.5 - y) * 7).toFixed(2) + "deg");
+    c.style.setProperty("--mx", (x * 100).toFixed(1) + "%");
+    c.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+  });
+  function untilt() {
+    if (!tilted) return;
+    tilted.classList.remove("tilt");
+    tilted.style.removeProperty("--rx"); tilted.style.removeProperty("--ry");
+    tilted = null;
+  }
+  grid.addEventListener("pointerleave", untilt);
+
+  // grid spotlight that follows the pointer across the background
+  const bg = $(".bg");
+  let spot = null;
+  addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse" || reduce.matches) return;
+    const run = !spot;
+    spot = [e.clientX, e.clientY];
+    if (run) requestAnimationFrame(() => {
+      bg.style.setProperty("--px", spot[0] + "px"); bg.style.setProperty("--py", spot[1] + "px"); spot = null;
+    });
+  }, { passive: true });
+  document.documentElement.addEventListener("pointerleave", () => { bg.style.removeProperty("--px"); bg.style.removeProperty("--py"); });
 
   function renderPager(pages) {
     pager.hidden = pages <= 1;
@@ -247,10 +348,21 @@
       return d;
     }));
   }
+  // the current page leaves against the direction of travel, then the new one slides in
+  let leaving = null;
   function goPage(i) {
     const pages = Math.max(1, Math.ceil(apps.filter(matches).length / layout.per));
     const p = Math.min(Math.max(0, i), pages - 1);
-    if (p !== state.page) { state.page = p; render(); }
+    if (p === state.page) return;
+    const dir = p > state.page ? 1 : -1;
+    state.page = p;
+    const show = () => { motion = { type: "page", dir }; render(); };
+    if (leaving) { leaving.cancel(); leaving = null; show(); return; }   // pressed again mid-way: skip the exit
+    if (reduce.matches || !grid.children.length) { show(); return; }
+    const out = grid.animate([{ translate: "0 0", opacity: 1 }, { translate: `${-dir * 44}px 0`, opacity: 0 }],
+      { duration: 170, easing: "cubic-bezier(.5,0,.75,0)", fill: "forwards" });
+    leaving = out;
+    out.finished.then(() => { if (leaving !== out) return; leaving = null; show(); out.cancel(); }, () => {});
   }
   prev.addEventListener("click", () => goPage(state.page - 1));
   next.addEventListener("click", () => goPage(state.page + 1));
@@ -301,16 +413,71 @@
     $("#dlg-open").style.setProperty("--app", /^#[0-9a-f]{6}$/i.test(a.color || "") ? a.color : "#3db4ff");
     $("#dlg-open").innerHTML = ""; $("#dlg-open").append(T().openApp(a.name)); $("#dlg-open").insertAdjacentHTML("beforeend", ARROW);
     if (push && location.hash !== "#" + slug) history.pushState(null, "", "#" + slug);
-    if (!dlg.open) { dlg.style.setProperty("--delay", sync()); dlg.showModal(); }
+    dlgSlug = slug;
+    if (!dlg.open || dlg.classList.contains("closing")) showDlg();
   }
+
+  // The dialog grows out of the card that was clicked (its banner morphs into the dialog's banner) and shrinks
+  // back into it on close. Without a card on screen it powers on like the cards do.
+  // Two animations on the dialog: "move" (where the box is) and "clip" (how much of it shows). From a card, the banner
+  // first travels and grows into place, and the details panel unfolds under it a beat later.
+  let dlgSlug = null, dlgAnims = [];
+  function dlgPlan() {
+    const d = dlg.getBoundingClientRect();
+    const media = $(".dlg__media"), mh = media.offsetParent ? media.offsetHeight : 0;
+    const card = dlgSlug && grid.querySelector(`.card[data-slug="${CSS.escape(dlgSlug)}"]`);
+    const open = "inset(-140px round 20px)";
+    if (card && mh) {
+      const c = card.parentElement.getBoundingClientRect(), s = c.width / d.width;
+      return {
+        move: [{ transformOrigin: "0 0", transform: `translate(${c.left - d.left}px, ${c.top - d.top}px) scale(${s})` },
+               { transformOrigin: "0 0", transform: "none" }],
+        clip: [{ clipPath: `inset(0 0 ${Math.max(0, d.height - mh - 3)}px 0 round ${(16 / s).toFixed(1)}px)` },
+               { clipPath: open }],
+      };
+    }
+    return {
+      move: [{ transform: "scale(.97)", filter: "brightness(2.2)" }, { transform: "none", filter: "brightness(1)" }],
+      clip: [{ clipPath: "inset(49.5% 0 49.5% 0 round 20px)" }, { clipPath: open }],
+    };
+  }
+  function stopDlgAnims() { dlgAnims.forEach((a) => a.cancel()); dlgAnims = []; }
+  function showDlg() {
+    stopDlgAnims();
+    dlg.classList.remove("closing");
+    if (!dlg.open) { dlg.style.setProperty("--delay", sync()); dlg.showModal(); }
+    if (reduce.matches) return;
+    dlg.classList.add("opening");
+    const p = dlgPlan(), ease = "cubic-bezier(.2,.8,.2,1)";
+    dlgAnims = [
+      dlg.animate(p.move, { duration: 520, easing: ease }),
+      dlg.animate(p.clip, { duration: 440, delay: 170, easing: ease, fill: "backwards" }),
+    ];
+    Promise.all(dlgAnims.map((a) => a.finished)).then(() => dlg.classList.remove("opening"), () => {});
+  }
+  function closeDlg() {
+    if (!dlg.open || dlg.classList.contains("closing")) return;
+    if (reduce.matches) { dlg.close(); return; }
+    stopDlgAnims();
+    dlg.classList.remove("opening"); dlg.classList.add("closing");
+    const p = dlgPlan(), ease = "cubic-bezier(.4,0,.2,1)";
+    dlgAnims = [
+      dlg.animate(p.clip.reverse(), { duration: 220, easing: ease, fill: "forwards" }),
+      dlg.animate(p.move.reverse(), { duration: 340, delay: 90, easing: ease, fill: "forwards" }),
+    ];
+    const all = dlgAnims;
+    Promise.all(all.map((a) => a.finished)).then(() => { dlg.close(); all.forEach((a) => a.cancel()); }, () => {});
+  }
+  dlg.addEventListener("cancel", (e) => { e.preventDefault(); closeDlg(); });   // Esc animates too
   dlg.addEventListener("close", () => {
+    dlg.classList.remove("closing", "opening");
     if (location.hash) history.pushState(null, "", location.pathname + location.search);
   });
-  dlg.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); }); // click on the backdrop
-  $("#dlg-close").addEventListener("click", () => dlg.close());
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) closeDlg(); }); // click on the backdrop
+  $("#dlg-close").addEventListener("click", closeDlg);
   window.addEventListener("popstate", () => {
     const slug = location.hash.slice(1);
-    if (slug) openApp(slug, false); else if (dlg.open) dlg.close();
+    if (slug) openApp(slug, false); else closeDlg();
   });
 
   // ---------- Controls ----------
@@ -320,8 +487,8 @@
     sortBtn.setAttribute("aria-label", T()[sortBtn.dataset.i18nLabel]);
     sortBtn.title = T()[sortBtn.dataset.i18nLabel];
   }
-  sortBtn.addEventListener("click", () => { state.sort = state.sort === "name" ? "updated" : "name"; state.page = 0; paintSort(); render(); syncUrl(); });
-  $("#reset").addEventListener("click", () => { state.q = ""; state.cat = "all"; state.page = 0; update(); });
+  sortBtn.addEventListener("click", () => { state.sort = state.sort === "name" ? "updated" : "name"; state.page = 0; paintSort(); motion = { type: "flip" }; render(); syncUrl(); });
+  $("#reset").addEventListener("click", () => { state.q = ""; state.cat = "all"; state.page = 0; motion = { type: "flip" }; update(); });
   document.addEventListener("keydown", (e) => {
     const typing = /^(INPUT|SELECT|TEXTAREA)$/.test(document.activeElement?.tagName);
     if (!dlg.open && !typing) {
@@ -341,6 +508,7 @@
       state.cat = params.get("cat") || "all";
       state.sort = params.get("sort") === "name" ? "name" : "updated"; paintSort();
       if (state.cat !== "all" && !apps.some((a) => a.category === state.cat)) state.cat = "all";
+      motion = { type: "boot" };
       update();
       if (location.hash.length > 1) openApp(location.hash.slice(1), false);
     })
