@@ -56,7 +56,7 @@
       "emoji": "🏘️",
       "url": "https://goingrate.julietous.workers.dev/",
       "color": "#1f4fd1",
-      "image": "img/goingrate.jpg?v=20261127b",
+      "image": "img/goingrate.jpg?v=20261128",
       "category": "tool",
       "tags": [
         {
@@ -69,20 +69,20 @@
         },
         "Statbel",
         {
-          "en": "open data",
-          "nl": "open data"
+          "en": "browser extension",
+          "nl": "browserextensie"
         }
       ],
-      "version": "v2",
+      "version": "v3",
       "updated": "2026-11-27",
       "new": true,
       "summary": {
-        "en": "Live government property sales in Flanders, each set against the going rate from Statbel sale prices. Not investment advice.",
-        "nl": "Live overheidsverkopen van vastgoed in Vlaanderen, elk afgezet tegen de marktprijs uit Statbel-verkoopprijzen. Geen beleggingsadvies."
+        "en": "The going rate next to real Flemish property listings: on a live map and, with a browser extension, on Immoweb. Not investment advice.",
+        "nl": "De marktprijs naast echte Vlaamse vastgoedaanbiedingen: op een live kaart en, met een browserextensie, op Immoweb. Geen beleggingsadvies."
       },
       "details": {
-        "en": "A map of real property listings in Flanders where every listing shows how its price compares with the going rate: what similar homes recently sold for nearby. Listings are live government sales from Finimmoweb and Vastgoedtransacties, collected every morning and kept only temporarily. The going rate comes from Statbel notarial sale prices per municipality, rolled forward with the province trend and adjusted for size, EPC label, age and plot. Each listing shows risk flags (zoning, flood maps, EPC renovation duty, bid deadline), the total cost to buy and a link to the source. Covered by 32 Playwright and 63 pytest tests. West-Vlaanderen is not covered yet. Not investment advice.",
-        "nl": "Een kaart van echte vastgoedaanbiedingen in Vlaanderen waarop elke aanbieding toont hoe de prijs zich verhoudt tot de marktprijs: wat vergelijkbare woningen in de buurt recent opbrachten. De aanbiedingen zijn live overheidsverkopen van Finimmoweb en Vastgoedtransacties, elke ochtend opgehaald en maar tijdelijk bewaard. De marktprijs komt uit de notariële verkoopprijzen van Statbel per gemeente, doorgetrokken met de provinciale trend en aangepast voor oppervlakte, EPC-label, ouderdom en perceel. Elke aanbieding toont risicovlaggen (bestemming, overstromingskaarten, EPC-renovatieplicht, biedtermijn), de totale aankoopkost en een link naar de bron. Gedekt door 32 Playwright- en 63 pytest-tests. West-Vlaanderen is nog niet opgenomen. Geen beleggingsadvies."
+        "en": "Going Rate puts the going rate next to real Flemish property listings: what similar homes recently sold for nearby, from Statbel notarial sale prices, rolled forward with the price trend and adjusted for size, EPC label, age and plot. Every price comes with risk flags (zoning, flood maps, EPC renovation duty, auctions and deadlines) and the total cost to buy. New in v3: a browser extension for Chrome and Edge that adds a Going Rate panel to every Immoweb listing you open, sending only the facts needed for the score; nothing is copied or stored. The map shows live government sales from Finimmoweb and Vastgoedtransacties, refreshed every morning, with no invented listings anywhere. Covers Antwerpen, Limburg, Oost-Vlaanderen and Vlaams-Brabant. Covered by over 80 Playwright and 67 pytest tests. Not investment advice.",
+        "nl": "Going Rate zet de marktprijs naast echte Vlaamse vastgoedaanbiedingen: wat vergelijkbare woningen in de buurt recent opbrachten, uit de notariële verkoopprijzen van Statbel, doorgetrokken met de prijstrend en aangepast voor oppervlakte, EPC-label, ouderdom en perceel. Bij elke prijs staan de risicovlaggen (bestemming, overstromingskaarten, EPC-renovatieplicht, veilingen en termijnen) en de totale aankoopkost. Nieuw in v3: een browserextensie voor Chrome en Edge die een Going Rate-paneel toevoegt aan elke Immoweb-aanbieding die je opent en alleen de gegevens voor de score doorstuurt; er wordt niets gekopieerd of bewaard. De kaart toont live overheidsverkopen van Finimmoweb en Vastgoedtransacties, elke ochtend ververst, zonder verzonnen aanbiedingen. Dekt Antwerpen, Limburg, Oost-Vlaanderen en Vlaams-Brabant. Gedekt door meer dan 80 Playwright- en 67 pytest-tests. Geen beleggingsadvies."
       }
     },
     {
