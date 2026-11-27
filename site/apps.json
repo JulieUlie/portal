@@ -51,6 +51,41 @@
       "pinned": true
     },
     {
+      "slug": "goingrate",
+      "name": "Going Rate",
+      "emoji": "🏘️",
+      "url": "https://goingrate.julietous.workers.dev/",
+      "color": "#1f4fd1",
+      "image": "img/goingrate.jpg?v=20261127b",
+      "category": "tool",
+      "tags": [
+        {
+          "en": "property",
+          "nl": "vastgoed"
+        },
+        {
+          "en": "map",
+          "nl": "kaart"
+        },
+        "Statbel",
+        {
+          "en": "open data",
+          "nl": "open data"
+        }
+      ],
+      "version": "v2",
+      "updated": "2026-11-27",
+      "new": true,
+      "summary": {
+        "en": "Live government property sales in Flanders, each set against the going rate from Statbel sale prices. Not investment advice.",
+        "nl": "Live overheidsverkopen van vastgoed in Vlaanderen, elk afgezet tegen de marktprijs uit Statbel-verkoopprijzen. Geen beleggingsadvies."
+      },
+      "details": {
+        "en": "A map of real property listings in Flanders where every listing shows how its price compares with the going rate: what similar homes recently sold for nearby. Listings are live government sales from Finimmoweb and Vastgoedtransacties, collected every morning and kept only temporarily. The going rate comes from Statbel notarial sale prices per municipality, rolled forward with the province trend and adjusted for size, EPC label, age and plot. Each listing shows risk flags (zoning, flood maps, EPC renovation duty, bid deadline), the total cost to buy and a link to the source. Covered by 32 Playwright and 63 pytest tests. West-Vlaanderen is not covered yet. Not investment advice.",
+        "nl": "Een kaart van echte vastgoedaanbiedingen in Vlaanderen waarop elke aanbieding toont hoe de prijs zich verhoudt tot de marktprijs: wat vergelijkbare woningen in de buurt recent opbrachten. De aanbiedingen zijn live overheidsverkopen van Finimmoweb en Vastgoedtransacties, elke ochtend opgehaald en maar tijdelijk bewaard. De marktprijs komt uit de notariële verkoopprijzen van Statbel per gemeente, doorgetrokken met de provinciale trend en aangepast voor oppervlakte, EPC-label, ouderdom en perceel. Elke aanbieding toont risicovlaggen (bestemming, overstromingskaarten, EPC-renovatieplicht, biedtermijn), de totale aankoopkost en een link naar de bron. Gedekt door 32 Playwright- en 63 pytest-tests. West-Vlaanderen is nog niet opgenomen. Geen beleggingsadvies."
+      }
+    },
+    {
       "slug": "riddlestorm",
       "name": "Riddlestorm",
       "emoji": "⛈️",

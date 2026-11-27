@@ -29,7 +29,8 @@
     background: linear-gradient(#111019, #111019) padding-box, linear-gradient(90deg, var(--rainbow)) border-box; border: 1.5px solid transparent; }
   .url { position: absolute; left: 64px; bottom: 44px; font: 400 21px "IBM Plex Mono", monospace; color: #9a96a6; }
 
-  .grid { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); display: grid; grid-template-columns: repeat(3, 224px); grid-auto-rows: 118px; gap: 14px; }
+  .grid { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); display: grid; grid-template-columns: repeat(4, 164px); grid-auto-rows: 86px; gap: 12px; }
+  .card.big { grid-column: span 2; grid-row: span 2; }
   .card { position: relative; border-radius: 12px; padding: 2px;
     background: conic-gradient(from calc(var(--i) * 40deg), var(--rainbow));
     box-shadow: 0 0 22px rgba(122, 92, 255, .22), 0 10px 30px rgba(0, 0, 0, .45); }
@@ -46,15 +47,16 @@
     </svg>
     <div class="eyebrow">JULIE TOUSSAINT</div>
     <h1>Web apps</h1>
-    <p>Nine things I built and host myself. Pick one and open it right in your browser.</p>
-    <div class="stats"><span class="chip">9 apps</span><span class="chip">8 with automated tests</span></div>
+    <p>Ten things I built and host myself. Pick one and open it right in your browser.</p>
+    <div class="stats"><span class="chip">10 apps</span><span class="chip">9 with automated tests</span></div>
   </div>
   <div class="url">apps.julietous.workers.dev</div>
 
   <div class="grid">
-    <div class="card" style="--i:0"><img src="../site/img/portfolio.jpg" alt=""></div>
-    <div class="card new" style="--i:8"><img src="../site/img/riddlestorm.jpg" alt=""></div>
-    <div class="card new" style="--i:1"><img src="../site/img/applytrack.png" alt=""></div>
+    <div class="card big" style="--i:0"><img src="../site/img/portfolio.jpg" alt=""></div>
+    <div class="card big new" style="--i:9"><img src="../site/img/goingrate.jpg" alt=""></div>
+    <div class="card" style="--i:8"><img src="../site/img/riddlestorm.jpg" alt=""></div>
+    <div class="card" style="--i:1"><img src="../site/img/applytrack.png" alt=""></div>
     <div class="card" style="--i:2"><img src="../site/img/presence-audit.png" alt=""></div>
     <div class="card" style="--i:3"><img src="../site/img/webcave.jpg" alt=""></div>
     <div class="card" style="--i:4"><img src="../site/img/schatkaart.png" alt=""></div>
